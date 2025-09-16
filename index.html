@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cris Gaming Store</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url("https://i.ibb.co/VcJGs4D7/images.jpg") no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    .header-box {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+    .header-box h1 {
+      font-size: 2.2rem;
+      margin: 0 0 10px;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+      color: #ff4d4d;
+    }
+    .header-box .note {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ffdddd;
+      background: rgba(255, 0, 0, 0.15);
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 12px rgba(255, 0, 0, 0.3);
+    }
+
+    .verified {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background: rgba(0, 255, 0, 0.15);
+      border: 1px solid lime;
+      border-radius: 20px;
+      color: #90ee90;
+      font-size: 0.9rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,255,0,0.3);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto 40px;
+      padding: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 12px 15px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #fff;
+      backdrop-filter: blur(8px);
+      transition: 0.3s;
+    }
+    .tab-btn:hover, .tab-btn:active {
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 0, 0, 0.5);
+      margin: 15px 0;
+      border-radius: 12px;
+      padding: 15px;
+      transition: 0.3s;
+    }
+    .feature:hover {
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+      transform: translateY(-3px);
+    }
+    .feature img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .feature h3 {
+      margin: 5px 0;
+      font-size: 1.2rem;
+      color: yellow;
+    }
+    .feature p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+    .price {
+      margin-top: 5px;
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .contact, .payment, .policy {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 0, 0, 0.5);
+    }
+    .contact h2, .payment h2, .policy h2 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #ffaaaa;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fb-btn {
+      background: #1877f2;
+    }
+    .tg-btn {
+      background: #0088cc;
+    }
+    .contact-btn:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+    }
+
+    .gcash {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #00c4ff;
+    }
+    .gcash img {
+      width: 100px;
+      height: 100px;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(0,0,0,0.6);
+      border-top: 2px solid rgba(255,0,0,0.5);
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Title + Warning -->
+  <div class="header-box">
+    <h1>🔥 Cris Gaming Store 🔥</h1>
+    <div class="note">
+      Welcome to the <b>official Cris Gaming Store</b> — your trusted source for coins, ranks, premium kits, and custom tools.  
+      ✨ We value your trust and guarantee safe, high-quality service.  
+      ⚠ <b>Warning:</b> Avoid scammers! Only transact inside this official store.
+    </div>
+    <div class="verified"><i class="fas fa-shield-alt"></i> Verified & Trusted Seller</div>
+  </div>
+
+  <!-- Store -->
+  <div class="container">
+    <div class="buttons">
+      <button class="tab-btn" onclick="showTab(1)">Menu 1</button>
+      <button class="tab-btn" onclick="showTab(2)">Menu 2</button>
+      <button class="tab-btn" onclick="showTab(3)">Menu 3</button>
+    </div>
+
+    <!-- MENU 1 -->
+    <div id="tab1" class="tab-content active">
+      <div class="feature">
+        <img src="https://i.postimg.cc/3N0xF2jD/coins.png" alt="Coins">
+        <h3>Unlimited Coins</h3>
+        <p>Get instant coins to boost your progress.</p>
+        <div class="price">₱20</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.postimg.cc/dtQmSbmF/money.png" alt="Money">
+        <h3>50M Money Pack</h3>
+        <p>Enjoy premium money boost for faster upgrades.</p>
+        <div class="price">₱20</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.postimg.cc/jjDrTHMt/premium.png" alt="Premium Kits">
+        <h3>Unlock Premium Kits</h3>
+        <p>Exclusive access to premium kits.</p>
+        <div class="price">Coming Soon</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.postimg.cc/9MyrWh1D/rank.png" alt="King Rank">
+        <h3>👑 King Rank</h3>
+        <p>Achieve the highest rank with special perks.</p>
+        <div class="price">₱30</div>
+      </div>
+    </div>
+
+    <!-- MENU 2 -->
+    <div id="tab2" class="tab-content">
+      <div class="feature">
+        <img src="https://i.postimg.cc/fWmh1d6t/stock.png" alt="Stock Account">
+        <h3>Stock Account</h3>
+        <p>Buy verified and ready-to-use accounts.<br>
+        🎁 <b>Promo Bundle:</b> Buy 2 Accounts = ₱180 only!</p>
+        <div class="price">₱100</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.postimg.cc/TYbLrMLJ/newaccount.png" alt="New Account">
+        <h3>Fresh New Account</h3>
+        <p>Provide your own Gmail & Password.</p>
+        <div class="price">₱100</div>
+      </div>
+    </div>
+
+    <!-- MENU 3 -->
+    <div id="tab3" class="tab-content">
+      <div class="feature">
+        <img src="https://i.postimg.cc/Kvj94svP/gg.png" alt="Custom GG">
+        <h3>Customizing GameGuardian</h3>
+        <p>Includes: Your Name, Background, Logo, Package Name<br>✨ Free design if possible!</p>
+        <div class="price">₱50</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.postimg.cc/YqV7cM6b/nuker.png" alt="Custom Nuker">
+        <h3>Customizing Nuker</h3>
+        <p>Includes: Your Name, Background, Package Name<br>✨ Free design if possible!</p>
+        <div class="price">₱70</div>
+      </div>
+      <div class="feature">
+        <img src="https://i.ibb.co/xS9FL0Z0/20250916-124132.jpg" alt="Extra Nuker">
+        <img src="https://i.ibb.co/4g0Z9pFW/20250916-144020.jpg" alt="Extra Nuker">
+        <h3>Special Nuker</h3>
+        <p>Feature based on provided image.<br>✨ Free design if possible!</p>
+        <div class="price">₱100</div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact">
+      <h2>📩 Contact me to avail:</h2>
+      <div class="contact-buttons">
+        <a href="https://www.facebook.com/profile.php?id=61577828138380" class="contact-btn fb-btn" target="_blank">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="http://t.me/nelhumble" class="contact-btn tg-btn" target="_blank">
+          <i class="fab fa-telegram"></i> Telegram
+        </a>
+      </div>
+    </div>
+
+    <!-- Payment -->
+    <div class="payment">
+      <h2>💳 Payment Method</h2>
+      <div class="gcash">
+        <img src="https://i.postimg.cc/4d7h9YdF/gcash.png" alt="GCash Logo">
+        Accepting <b>GCash Only</b>
+      </div>
+    </div>
+
+    <!-- Store Policy -->
+    <div class="policy">
+      <h2>📜 Store Policy</h2>
+      <p>✔ No refunds after successful transaction.<br>
+         ✔ Transactions are private & secure.<br>
+         ✔ Always contact only via official links.<br>
+       </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Cris Gaming Store. All Rights Reserved.
+  </footer>
+
+  <script>
+    function showTab(n) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById('tab' + n).classList.add('active');
+    }
+  </script>
+</body>
+  </html>
